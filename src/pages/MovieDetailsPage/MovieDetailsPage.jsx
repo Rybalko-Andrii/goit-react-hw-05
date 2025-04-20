@@ -1,10 +1,4 @@
-import {
-  Link,
-  Outlet,
-  useLocation,
-  useNavigate,
-  useParams,
-} from "react-router-dom";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getMovieDetails } from "../../services/Api";
 import Loader from "../../components/Loader/Loader";

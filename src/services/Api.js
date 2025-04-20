@@ -17,7 +17,7 @@ const getMovies = async (endpoint, params = {}) => {
     const response = await axios.get(url, options);
     return response.data;
   } catch (error) {
-    console.error("Error fetching data:", error);
+    console.error("Error", error);
     throw error;
   }
 };
