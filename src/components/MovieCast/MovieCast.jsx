@@ -33,7 +33,6 @@ const MovieCast = () => {
       {cast.map((actor) => (
         <li key={actor.id}>
           <div>
-            {/* Додаємо зображення актора */}
             {actor.profile_path && (
               <img
                 src={`${imageBaseUrl}${actor.profile_path}`}
