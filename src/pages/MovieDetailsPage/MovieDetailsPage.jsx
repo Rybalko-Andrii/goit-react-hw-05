@@ -1,5 +1,5 @@
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getMovieDetails } from "../../services/Api";
 import Loader from "../../components/Loader/Loader";
 import GoBackButton from "../../components/GoBackBtn/GoBackBtn";
@@ -9,6 +9,7 @@ const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(false);
   const location = useLocation();
+  const backLinkRef = useRef(location.state.from ?? "/movies");
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -34,7 +35,7 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
-      <GoBackButton fallback="/movies" />
+      <GoBackButton fallback={backLinkRef.current} />
 
       {loading && <Loader />}
 
