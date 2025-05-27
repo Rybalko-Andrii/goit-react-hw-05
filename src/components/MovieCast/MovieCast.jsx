@@ -28,7 +28,7 @@ const MovieCast = () => {
 
   const imageBaseUrl = "https://image.tmdb.org/t/p/w500/";
 
-  const placeholderImg = "/src/img/No_Image_Available.jpg";
+  const placeholderImg = "/public/img/No_Image_Available.jpg";
 
   return (
     <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-5">

@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 const MovieList = ({ movies }) => {
   const location = useLocation();
 
-  const placeholderImg = "/src/img/No_Image_Available.jpg";
+  const placeholderImg = "/public/img/No_Image_Available.jpg";
   return (
     <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
       {movies.map((movie) => (
