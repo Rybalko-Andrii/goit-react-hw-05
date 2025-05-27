@@ -27,18 +27,26 @@ const MovieReviews = () => {
   if (loading) return <Loader />;
 
   return (
-    <ul>
-      {reviews.length > 0 ? (
-        reviews.map((review) => (
-          <li key={review.id}>
-            <h4>Author: {review.author}</h4>
-            <p>{review.content}</p>
-          </li>
-        ))
+    <div className="flex flex-col items-center  min-h-screen p-4">
+      {loading ? (
+        <Loader />
+      ) : reviews.length > 0 ? (
+        <ul className="w-full max-w-3xl space-y-6">
+          {reviews.map((review) => (
+            <li key={review.id} className="p-4">
+              <h4 className="mb-2 font-semibold text-lg text-amber-100 ">
+                Author: {review.author}
+              </h4>
+              <p className="text-amber-100 whitespace-pre-line">
+                {review.content}
+              </p>
+            </li>
+          ))}
+        </ul>
       ) : (
-        <p>No reviews found.</p>
+        <p className="text-center text-amber-100 text-xl">No reviews found.</p>
       )}
-    </ul>
+    </div>
   );
 };
 

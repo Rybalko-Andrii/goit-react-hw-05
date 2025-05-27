@@ -37,10 +37,21 @@ const MoviesPage = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="search" defaultValue={query} />
-        <button type="submit">Search</button>
+    <div className="flex flex-col items-center justify-center min-h-screen p-4 ">
+      <form className="flex max-w-[400px] w-full" onSubmit={handleSubmit}>
+        <input
+          className="flex-grow bg-amber-100/50 pt-4 pb-4 pl-4 pr-4 rounded-l-md mb-4"
+          type="text"
+          name="search"
+          defaultValue={query}
+          placeholder="Search movies..."
+        />
+        <button
+          className="bg-blue-900/50 text-amber-100/50 pt-4 pb-4 pl-6 pr-6 rounded-r-md cursor-pointer mb-4"
+          type="submit"
+        >
+          Search
+        </button>
       </form>
 
       {loading ? <Loader /> : <MovieList movies={movies} />}

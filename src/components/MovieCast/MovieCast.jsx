@@ -28,20 +28,25 @@ const MovieCast = () => {
 
   const imageBaseUrl = "https://image.tmdb.org/t/p/w500/";
 
+  const placeholderImg = "/src/img/No_Image_Available.jpg";
+
   return (
-    <ul>
+    <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-5">
       {cast.map((actor) => (
         <li key={actor.id}>
-          <div>
-            {actor.profile_path && (
-              <img
-                src={`${imageBaseUrl}${actor.profile_path}`}
-                alt={actor.name}
-                width="100"
-                height="150"
-              />
-            )}
-            <p>
+          <div className="flex flex-col items-center text-white">
+            <img
+              src={
+                actor.profile_path
+                  ? `${imageBaseUrl}${actor.profile_path}`
+                  : placeholderImg
+              }
+              alt={actor.name}
+              width="150"
+              height="225"
+              className="w-[150px] h-[225px] object-cover rounded shadow-md"
+            />
+            <p className="mt-2 text-center text-sm">
               {actor.name} as {actor.character}
             </p>
           </div>

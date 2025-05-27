@@ -20,7 +20,7 @@ const Navigation = React.lazy(() =>
 
 const App = () => {
   return (
-    <>
+    <div className="min-h-screen w-screen bg-gray-900">
       <Suspense fallback={<Loader />}>
         <Navigation />
       </Suspense>
@@ -38,7 +38,7 @@ const App = () => {
           </Route>
         </Routes>
       </Suspense>
-    </>
+    </div>
   );
 };
 

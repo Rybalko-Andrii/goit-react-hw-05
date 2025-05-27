@@ -39,29 +39,36 @@ const MovieDetailsPage = () => {
 
       {loading && <Loader />}
 
-      <div>
-        <img src={poster} alt={movie.title} />
-        <div>
-          <h2>{movie.title}</h2>
-          <p>User Score: {Math.round(movie.vote_average * 10)}%</p>
-          <h3>Overview</h3>
-          <p>{movie.overview}</p>
-          <h3>Genres</h3>
-          <p>{movie.genres?.map((g) => g.name).join(", ")}</p>
+      <div className="flex gap-4   items-center justify-center">
+        <img
+          src={poster}
+          alt={movie.title}
+          width={320}
+          className="rounded-lg"
+        />
+        <div className="max-w-[700px]">
+          <h2 className="text-2xl mb-4 text-amber-100 ">{movie.title}</h2>
+          <p className="text-md mb-4 text-amber-100">
+            User Score: {Math.round(movie.vote_average * 10)}%
+          </p>
+          <h3 className="text-lg mb-4 text-amber-100">Overview</h3>
+          <p className="text-md mb-4 text-amber-100">{movie.overview}</p>
+          <h3 className="text-lg mb-4 text-amber-100">Genres</h3>
+          <p className="text-md mb-4 text-amber-100">
+            {movie.genres?.map((g) => g.name).join(", ")}
+          </p>
         </div>
       </div>
 
-      <hr />
-
-      <div>
-        <h3>Additional information</h3>
-        <ul>
-          <li>
+      <div className=" flex flex-col   items-center justify-center mt-4">
+        <h3 className="text-2xl text-amber-100">Additional information</h3>
+        <ul className="flex gap-4">
+          <li className="pt-2 pb-2 pl-2 pr-2 text-lg text-amber-100 hover:text-amber-300">
             <Link to="cast" state={{ from: location.state?.from }}>
               Cast
             </Link>
           </li>
-          <li>
+          <li className="pt-2 pb-2 pl-2 pr-2 text-lg text-amber-100 hover:text-amber-300">
             <Link to="reviews" state={{ from: location.state?.from }}>
               Reviews
             </Link>
@@ -69,7 +76,6 @@ const MovieDetailsPage = () => {
         </ul>
       </div>
 
-      <hr />
       <Outlet />
     </div>
   );
